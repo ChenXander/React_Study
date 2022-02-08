@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="test"></div>
+
+    <script src="../js/react.development.js"></script> <!-- 核心库 -->
+    <script src="../js/react-dom.development.js"></script> <!-- react-dom -->
+    <script src="../js/babel.min.js"></script> <!-- 引入babel，用于将jsx转为js -->
+
+    <script type="text/babel">
+        /*
+            一定注意区分：【js语句（代码）】与【js表达式】
+            1.表达式：一个表达式会产生一个值，可以放在任何一个需要值得地方
+                下面都是表达式：
+                    a
+                    a+b
+                    demo(1)
+                    arr.map()
+                    function tets() {}
+            2.语句（代码）：
+                下面都是语句（代码）
+                    if() {}
+                    for() {}
+                    switch() {case: xxxx}
+        */
+
+        // 模拟一些数据
+        const data = ['Angular', 'React', 'Vue'];
+        const VDOM = (
+            <div>
+                <h1>前端js框架列表</h1>
+                <ul>
+                    {
+                        data.map((item, index) => {
+                            return <li key={index} > {item}</li>;
+                        })
+                    }
+                </ul>
+            </div>
+        );
+
+        ReactDOM.render(VDOM, document.getElementById('test'));
+    </script>
+</body>
+
+</html>
